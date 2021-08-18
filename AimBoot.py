@@ -65,7 +65,7 @@ while keyboard.is_pressed('c') == False:
 # 600, 420    
 # RGB: 255, 219, 195
 
-sc = pyautogui.screenshot(region=(300,350,630,500))
+# sc = pyautogui.screenshot(region=(300,350,630,500))
 
-sc.save('Exemplo.png')
+# sc.save('Exemplo.png')
 
