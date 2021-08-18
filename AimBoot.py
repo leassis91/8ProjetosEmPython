@@ -72,7 +72,4 @@ while keyboard.is_pressed('c') == False:
 
 #Fazendo alterações pra ver se muda no githubb
 
-'''
-uh llaaa
-
-'''
+#Retirando alterações para teste
