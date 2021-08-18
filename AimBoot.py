@@ -69,3 +69,10 @@ while keyboard.is_pressed('c') == False:
 
 # sc.save('Exemplo.png')
 
+
+#Fazendo alterações pra ver se muda no githubb
+
+'''
+uh llaaa
+
+'''
