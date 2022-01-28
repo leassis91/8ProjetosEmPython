@@ -6,13 +6,12 @@
 
 # Cenário: Estou numa guerra entre duas nações e nós temos 2 lados: lado A e lado B. Somente o ladoA irá vencer; o ladoB irá perder
 
-from tkinter import N
-import PySimpleGUI
-import random
+import PySimpleGUI as sg
+
 
 class JogoDeAventura:
     def __init__(self):
-        self.pergunta1 = 'Você nasceu no norte ou no sul? (N/S)' #norte = LadoA, sul = LadoB
+        self.pergunta1 = 'Você nasceu no norte ou no sul? (n/s)' #norte = LadoA, sul = LadoB
         self.pergunta2 = 'Você prefere a espada ou escudo? (espada/escudo)' #espada = LadoA, escudo=LadoB
         self.pergunta3 = 'Qual é a sua especialidade? (linha de frente/tatico)' #linha de frente = LadoA, tático = LadoB
         self.final1 = 'Você será um heroi na linha de frente!'
@@ -22,20 +21,50 @@ class JogoDeAventura:
 
 
     def Iniciar(self):
-        resposta1 = input(self.pergunta1)
-        if resposta1 == 'N':
-            resposta1B = input(self.pergunta2)
-            if resposta1B =='espada':
-                print(self.final1)
-            if resposta1B == 'escudo':
-                print(self.final2)
-        if resposta1 == 'S':
-            resposta1B = input(self.pergunta3)
-            if resposta1B == 'linha de frente':
-                print(self.final3)
-            if resposta1B == 'tatico':
-                print(self.final4)
+        # Layout
+        layout = [
+            [sg.Output(size=(50,0))],
+            [sg.Input(size=(25,0), key='escolha')],
+            [sg.Button('Iniciar'), sg.Button('Responder')]
+        ]
+
+        # criar a janela
+        self.janela = sg.Window('Jogo de Aventura!', layout=layout)
+
+        while True:
+            # ler os dados
+            self.LerValores()
+            #fazer algo com os dados
+            if self.evento == 'Iniciar':
+                print(self.pergunta1)
+                self.LerValores()
+
+                if self.valores['escolha'] == 'n':
+                    print(self.pergunta2)
+                    self.LerValores()
+                    if self.valores['escolha'] == 'espada':
+                        print(self.final1)
+                    if self.valores['escolha'] == 'escudo':
+                        print(self.final2)
+
+                if self.valores['escolha'] == 's':
+                    print(self.pergunta3)
+                    self.LerValores()
+                    if self.valores['escolha'] == 'linha de frente':
+                        print(self.final3)
+                    if self.valores['escolha'] == 'tatico':
+                        print(self.final4)
+                
+            if self.evento is None:
+                break
+
+        self.janela.close()
+
+    def LerValores(self):
+        self.evento, self.valores = self.janela.Read()
+
 
 
 jogar = JogoDeAventura()
 jogar.Iniciar()
+jogar.Close()
