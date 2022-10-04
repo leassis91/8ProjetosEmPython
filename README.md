@@ -1,5 +1,5 @@
 # ProjetosEmPython
-Projetos feitos em Python para treinamento iniciante.
+Projetos feitos em Python para treinamento.
 
 Projetos destinados a novos desenvolvedores e programadores em treinamento.
 
